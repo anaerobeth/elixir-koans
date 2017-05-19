@@ -6,24 +6,24 @@ defmodule KeywordLists do
   koan "Like maps, keyword lists are key-value pairs" do
     kw_list = [foo: "bar"]
 
-    assert kw_list[:foo] == ___
+    assert kw_list[:foo] == 'bar'
   end
 
   koan "Keys may be repeated, but only the first is accessed" do
     kw_list = [foo: "bar", foo: "baz"]
 
-    assert kw_list[:foo] == ___
+    assert kw_list[:foo] == 'bar'
   end
 
   koan "You could access a second key by removing the first" do
     kw_list = [foo: "bar", foo: "baz"]
     [_|kw_list] = kw_list
 
-    assert kw_list[:foo] == ___
+    assert kw_list[:foo] == 'baz'
   end
 
   koan "Keyword lists are just special syntax for lists of two-element tuples" do
-    assert [foo: "bar"] == [{___, ___}]
+    assert [foo: "bar"] == [{:foo, 'bar'}]
   end
 
   koan "But unlike maps, the keys in keyword lists must be atoms" do

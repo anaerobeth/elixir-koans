@@ -20,11 +20,11 @@ defmodule Lists do
   end
 
   koan "Evolution can have different forms" do
-    assert List.delete([:a, :b, :c], :b) == ___
+    assert List.delete([:a, :b, :c], :b) == [:a, :c]
   end
 
   koan "Precision is also valued" do
-    assert List.delete_at([:a, :b, :c], 2) == ___
+    assert List.delete_at([:a, :b, :c], 2) == [:a, :b]
   end
 
   koan "Replication is also possible" do
@@ -32,23 +32,23 @@ defmodule Lists do
   end
 
   koan "Sometimes leveling the playing field is desired" do
-    assert List.flatten([1, [2, 3], 4, [5]]) == ___
+    assert List.flatten([1, [2, 3], 4, [5]]) == [1, 2, 3,  4, 5,]
   end
 
   koan "Order can also be specified for new members" do
-    assert List.insert_at([1, 2, 3], 1, 4) == ___
+    assert List.insert_at([1, 2, 3], 1, 4) == [1, 4, 2, 3]
   end
 
   koan "We can replace things at specified positions" do
-    assert List.replace_at([1, 2, 3], 0, 10) == ___
+    assert List.replace_at([1, 2, 3], 0, 10) == [10, 1, 2, 3]
   end
 
   koan "When a replacement cannot be found, the list remains the same" do
-    assert List.replace_at([1, 2, 3], 10, 0) == ___
+    assert List.replace_at([1, 2, 3], 10, 0) == [1, 2, 3]
   end
 
   koan "Order is bound by nature's laws" do
-    assert List.insert_at([1, 2, 3], 10, 4) == ___
+    assert List.insert_at([1, 2, 3], 10, 4) == [1, 2, 3, 4]
   end
 
   koan "Sometimes it's faster to loop around back" do
@@ -56,7 +56,7 @@ defmodule Lists do
   end
 
   koan "We can also transform ourselves completely" do
-    assert List.to_tuple([1, 2, 3]) == ___
+    assert List.to_tuple([1, 2, 3]) == (1, 2, 3)
   end
 
   koan "Wrapping other values is a handy option" do
