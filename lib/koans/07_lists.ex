@@ -28,7 +28,7 @@ defmodule Lists do
   end
 
   koan "Replication is also possible" do
-    assert List.duplicate("life", 3) == ___
+    assert List.duplicate("life", 3) == ["life", "life", "life"]
   end
 
   koan "Sometimes leveling the playing field is desired" do
@@ -40,7 +40,7 @@ defmodule Lists do
   end
 
   koan "We can replace things at specified positions" do
-    assert List.replace_at([1, 2, 3], 0, 10) == [10, 1, 2, 3]
+    assert List.replace_at([1, 2, 3], 0, 10) == [10, 2, 3]
   end
 
   koan "When a replacement cannot be found, the list remains the same" do
@@ -52,22 +52,22 @@ defmodule Lists do
   end
 
   koan "Sometimes it's faster to loop around back" do
-    assert List.insert_at([1, 2, 3], -1, 4) == ___
+    assert List.insert_at([1, 2, 3], -1, 4) == [1, 2, 3, 4]
   end
 
   koan "We can also transform ourselves completely" do
-    assert List.to_tuple([1, 2, 3]) == (1, 2, 3)
+    assert List.to_tuple([1, 2, 3]) == {1, 2, 3}
   end
 
   koan "Wrapping other values is a handy option" do
-    assert List.wrap("value") == ___
+    assert List.wrap("value") == ["value"]
   end
 
   koan "Wrapping nothing produces a list of nothing" do
-    assert List.wrap(nil) == ___
+    assert List.wrap(nil) == []
   end
 
   koan "When there is already a list do not wrap it again" do
-    assert List.wrap(["value"]) == ___
+    assert List.wrap(["value"]) == ["value"]
   end
 end
