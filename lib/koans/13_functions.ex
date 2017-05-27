@@ -8,20 +8,20 @@ defmodule Functions do
   end
 
   koan "Functions map arguments to outputs" do
-    assert greet("World") == ___
+    assert greet("World") == "Hello, World!"
   end
 
   def multiply(a, b), do: a * b
   koan "Single line functions are cool, but mind the comma and the colon!" do
-    assert 6 == multiply(2, ___)
+    assert 6 == multiply(2, 3)
   end
 
   def first(foo, bar), do: "#{foo} and #{bar}"
   def first(foo), do: "Only #{foo}"
 
   koan "Functions with the same name are distinguished by the number of arguments they take" do
-    assert first("One", "Two") == ___
-    assert first("One") == ___
+    assert first("One", "Two") == "One and Two"
+    assert first("One") == "Only one"
   end
 
   def repeat_again(message, times \\ 5) do
@@ -29,15 +29,15 @@ defmodule Functions do
   end
 
   koan "Functions can have default argument values" do
-    assert repeat_again("Hello ") == ___
-    assert repeat_again("Hello ", 2) == ___
+    assert repeat_again("Hello ") == "Hello Hello Hello Hello Hello"
+    assert repeat_again("Hello ", 2) == "Hello Hello"
   end
 
   def sum_up(thing) when is_list(thing), do: :entire_list
   def sum_up(_thing), do: :single_thing
 
   koan "Functions can have guard expressions" do
-    assert sum_up([1, 2, 3]) == ___
+    assert sum_up([1, 2, 3]) == 6
     assert sum_up(1) == ___
   end
 
